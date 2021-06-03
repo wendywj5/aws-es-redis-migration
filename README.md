@@ -4,7 +4,7 @@
 pip install elasticsearch
 
 ### 执行python文件
-python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https://target.es.amazonaws.com (https://vpc-magento-elasticsearch-7x6sbhnhhlajwyio6ec4tgccjq.ap-southeast-1.es.amazonaws.com/) -ut 'user' -pt 'password' -i index1 index2
+python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https://target.es.amazonaws.com -ut 'user' -pt 'password' -i index1 index2 -m id
 ### 参数说明：
 > `--percentage` 如果设置为100 则扫描所有Index和index下所有文档的数据校验。 默认扫描各Index下doc.count * 10% 数据
 > 
