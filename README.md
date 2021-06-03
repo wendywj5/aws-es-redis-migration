@@ -8,7 +8,7 @@ python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https:
 ### 参数说明：
 > `--percentage` 如果设置为100 则扫描所有Index和index下所有文档的数据校验。 默认扫描各Index下doc.count * 10% 数据
 > `--index_name_list` 可传Index列表， 如 -i test_index1 test_index2   如未传参，则扫描所有Index
-> `--mode` 默认校验文档数据（doc._source）， 如指定-m id， 则只校验doc._id 是否存在，不校验数据。
+> `--mode` 默认校验文档数据（doc._source）， 如指定-m id， 则只校验doc._id 是否存在，不校验数据
 
 - parser.add_argument('--es_url_source', '-u1', help='源ES URL，必要参数', required=True)
 - parser.add_argument('--es_url_target', '-u2', help='目标ES URL，必要参数', required=True)
