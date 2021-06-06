@@ -22,4 +22,7 @@ python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https:
 - parser.add_argument('--check_mode', '-m', help='校验模式，data或id校验。非必要参数',default="data",type=str)
 - parser.add_argument('--percentage','-p', help='随机校验百分比，非必要参数，默认10%', default=10)
 
-###### _Keep optimizing_
+#### TBD：
+如果出现tuple index out of range 错误，需要注解掉sys.setrecursionlimit，调高参数
+或者也有其他优化的方法。。
+##### _Keep optimizing_
