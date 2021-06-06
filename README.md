@@ -23,6 +23,7 @@ python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https:
 - parser.add_argument('--percentage','-p', help='随机校验百分比，非必要参数，默认10%', default=10)
 
 #### TBD：
-如果出现tuple index out of range 错误，需要注解掉sys.setrecursionlimit，调高参数
-或者也有其他优化的方法。。
+如果出现tuple index out of range 错误，可能是由于Python's default recursion limit is 1000. 可以注解掉py文件内sys.setrecursionlimit。
+
+也可以从程序上进行优化。
 ##### _Keep optimizing_
