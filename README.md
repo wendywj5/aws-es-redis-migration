@@ -1,8 +1,8 @@
 # aws-es-redis-migration
 
-##eschekwj.py
+## eschekwj.py
 ### 安装模块
-pip install elasticsearch
+pip3 install elasticsearch
 
 ### 执行python文件
 python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https://target.es.amazonaws.com -ut 'user' -pt 'password' -i index1 index2 -m id
@@ -29,5 +29,14 @@ python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https:
 也可以从程序上进行优化。
 ##### _Keep optimizing_
 
-##redis-mirror-fork.py
-https://github.com/alivx/redis-mirror 
+## redis-mirror-fork.py
+基于： https://github.com/alivx/redis-mirror 
+
+### 安装模块
+pip3 install redis click redis-py-cluster
+
+### 使用
+redis-cli -h {source_host} -p {source_port} monitor | python3 redis-mirror-fork.py  --sport {source_port} --shost {source_host}  --dhost {target_host} --dport {target_port} --replace
+
+### TODO
+Test redis cluster
