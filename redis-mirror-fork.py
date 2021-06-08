@@ -139,21 +139,28 @@ def getSTDOUT(sourceConnection, destinationConnection, limit, replace):
         #     if counter == limit:
         #         print(f"Limit reached {counter}")
         #         sys.exit(0)
-        if not key == None and '] "SET" "' in line:
-            counter = counter + 1
-            data = sourceConnection.dump(key)
-            destinationConnection.restore(key, 0, data, replace=replace)
-            print(f"Mirrored key | {key}")
-
-            ttl = sourceConnection.ttl(key)
-            print("ttl" + ttl)
-            if ttl > 0 : 
-                destinationConnection.expire(key,ttl)
-            print(f"Mirrored ttl | {ttl}")
+        if '] "select" "' in line:
+            continue
         if not key == None and '] "EXPIRE" "' in line:
             value = split_value('"', line, 10)
             print("value" + value)
             destinationConnection.expire(key,int(value))
+        if not key == None and '] "DEL" "' in line:
+            value = split_value('"', line, 10)
+            print("value" + value)
+            destinationConnection.delete(key)
+        if not key == None and '] "DUMP" "' not in line and '] "TTL" "' not in line:
+            counter = counter + 1
+            data = sourceConnection.dump(key)
+            try:
+                destinationConnection.restore(key, 0, data, replace=replace)
+                print(f"Mirrored key | {key}")  
+                ttl = sourceConnection.ttl(key)
+                if ttl > 0 : 
+                    destinationConnection.expire(key,ttl)
+                    print(f"Mirrored ttl | {str(ttl)}")
+            except Exception as e:
+                print(f"Skip because of  {e}") 
 
 if __name__ == "__main__":
     main()
