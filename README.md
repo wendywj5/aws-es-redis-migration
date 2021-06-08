@@ -1,5 +1,6 @@
-# aws-es-migration
+# aws-es-redis-migration
 
+##eschekwj.py
 ### 安装模块
 pip install elasticsearch
 
@@ -27,3 +28,6 @@ python3 estestwj.py -u1 http://source:9200 (http://10.2.16.203:9200/) -u2 https:
 
 也可以从程序上进行优化。
 ##### _Keep optimizing_
+
+##redis-mirror-fork.py
+https://github.com/alivx/redis-mirror 
