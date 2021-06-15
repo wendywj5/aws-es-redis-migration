@@ -1,0 +1,4 @@
+{
+  "server": "magento-redis.0001.apse1.cache.amazonaws.com",
+  "port": "6379"
+}
