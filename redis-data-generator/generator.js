@@ -78,7 +78,8 @@ Generator.prototype._setConnection = function(){
 
   redis = new Redis(config.port, config.server);
   rStream = redis.stream();
- // rStream.redis.write(Redis.parse([ 'auth', 'Zaq12wsx!@' ]))
+ // redis auth command
+ // rStream.redis.write(Redis.parse([ 'auth', 'password' ]))
   rStream.on('error', function(err){
     process.stdout.write('\033[31mNo redis connection available on : ' + config.server + ':' + config.port + '\033[39m \n');
     process.exit();
@@ -159,6 +160,7 @@ Generator.prototype._getValue = function(){
       input.push( this.type );
       input.push( this._getKey() );
       input.push(lorem({count: random(), units: 'words'}));
+      //ADD ttl
       input.push("EX");
       input.push("40000");
       break;
