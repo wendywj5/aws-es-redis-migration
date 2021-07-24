@@ -1,52 +1,25 @@
 ### Clone from https://github.com/SaminOz/redis-random-data-generator/blob/master/generator.js
-#### Added ttl for string type data.
-#### Added auth code for loging into redis 
+AWS linux installation:
 
-*------------------------------------------------------------------* 
- Generator.js - quickly add random data to a redis instance.         
--------------------------------------------------------------------  
+  > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  > . ~/.nvm/nvm.sh
+  > nvm install node
+Install dependencies:
+
+  > npm install lorem-ipsum@1.0.3
+  > npm install uuid
+  > npm install redis-stream
+  > npm install wordwrap
+
+
  Basic Usage:                                                        
 ===================================================================  
   > `node generator.js <type> <qty> [<key_prefix>]`                  
-                                                                     
- * This will enter `<qty>` of `<type>` entries into the redis        
-   instance running at the server and port address set in the        
-   config.json file.                                                 
-                                                                     
- * If <key_prefix> is set then this will be prepended to the key     
-   (uuid) separated by a ":" - credit to Alfonso Montero for this    
-   contribution.                                                     
-                                                                     
+                                                                                                                                                                
    `node generator.js hash 100 session`                              
    `1)...`                                                           
    `100) "session:ffab3b35-09c3-4fd7-9af1-4d323534065e"`             
-                                                                     
- * This (config.json) file is automatically generated on running     
-   npm install redis-random-data-generator and will default to       
-   127.0.0.1:6379 change the settings to suit your setup. If the     
-   file gets deleted the local default setting will be used.         
-                                                                     
- * There is no provision yet for an array of <types> so if you       
-   require various entries you will need to run the command several  
-   times.                                                            
-                                                                     
- * Run npm test to perform tests on the script.                      
-                                                                     
- * The script uses generated uuids for keys and random lorum ipsum   
-   for values.                                                       
-                                                                     
- * Dependancy Graph for generator.js                                 
-                                                                     
-   ├─┬ lorem-ipsum@1.0.3                                             
-   │ └─┬ optimist@0.3.7                                              
-   │   └── wordwrap@0.0.3                                            
-   ├─┬ redis-stream@0.1.0                                            
-   │ └─┬ event-stream@2.1.9                                          
-   │   ├── from@0.1.3                                                
-   │   ├── optimist@0.2.8                                            
-   │   └── through@0.0.4                                             
-   └── uuid@3.0.1                                                    
-                                                                     
+                                            
                                                                      
 -------------------------------------------------------------------  
  Types (others may be added in future versions i.e. geohash):        
