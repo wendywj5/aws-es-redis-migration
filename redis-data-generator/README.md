@@ -1,17 +1,22 @@
 ### Clone from https://github.com/SaminOz/redis-random-data-generator/blob/master/generator.js
-AWS linux installation:
+-------------------------------------------------------------------  
+ Amazon Linux installation:                                                        
+===================================================================  
 
-  > curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-  > . ~/.nvm/nvm.sh
-  > nvm install node
-Install dependencies:
+  > `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
+    `. ~/.nvm/nvm.sh`
+    `nvm install node`
+ 
+ -------------------------------------------------------------------  
+ Denpendencies:                                                        
+===================================================================  
 
-  > npm install lorem-ipsum@1.0.3
-  > npm install uuid
-  > npm install redis-stream
-  > npm install wordwrap
+  > `npm install lorem-ipsum@1.0.3`
+    `npm install uuid`
+    `npm install redis-stream`
+    `npm install wordwrap`
 
-
+-------------------------------------------------------------------  
  Basic Usage:                                                        
 ===================================================================  
   > `node generator.js <type> <qty> [<key_prefix>]`                  
